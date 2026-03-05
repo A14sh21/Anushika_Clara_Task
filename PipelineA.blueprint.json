@@ -145,7 +145,7 @@
                 "headers": [
                     {
                         "name": "Authorization",
-                        "value": "Bearer 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"
+                        "value": "Bearer <YOUR API>"
                     },
                     {
                         "name": "Content-Type",
