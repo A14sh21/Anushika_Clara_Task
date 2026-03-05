@@ -66,7 +66,7 @@ The workflows are designed to be idempotent. Executing the pipelines multiple ti
 ### Execution Protocol
 
 1. **Trigger Pipeline A**: Open the Google Sheet and change a client's status. Execute Pipeline A manually or via polling. Verify the `v1` assets are generated in Dropbox.
-2. **Trigger Pipeline B**: Update the same client's status to `Onboarding Complete`. Execute Pipeline B. Verify the `v2` assets and `changes.md` file are generated.
+2. **Trigger Pipeline B**: Update the same client's status. Execute Pipeline B. Verify the `v2` assets and `changes.md` file are generated.
 
 ---
 
