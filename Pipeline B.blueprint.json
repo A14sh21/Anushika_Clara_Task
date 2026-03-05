@@ -1,0 +1,1560 @@
+{
+    "name": "Pipeline B",
+    "flow": [
+        {
+            "id": 1,
+            "module": "google-sheets:filterRows",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 7686077
+            },
+            "mapper": {
+                "from": "share",
+                "filter": [
+                    [
+                        {
+                            "a": "C",
+                            "b": "v1 Generated",
+                            "o": "text:equal"
+                        }
+                    ]
+                ],
+                "sheetId": "Sheet1",
+                "sortOrder": "asc",
+                "spreadsheetId": "1GeHbpjSQzz9HTWh6iiiSwxP4Qr4fhocVNA7diRlBhbI",
+                "tableFirstRow": "A1:Z1",
+                "includesHeaders": true,
+                "valueRenderOption": "FORMATTED_VALUE",
+                "dateTimeRenderOption": "FORMATTED_STRING"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 0,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "from": {
+                            "label": "Select from all"
+                        },
+                        "orderBy": {
+                            "mode": "chose"
+                        },
+                        "sheetId": {
+                            "mode": "chose",
+                            "label": "Sheet1"
+                        },
+                        "sortOrder": {
+                            "mode": "chose",
+                            "label": "Ascending"
+                        },
+                        "tableFirstRow": {
+                            "label": "A-Z"
+                        },
+                        "includesHeaders": {
+                            "mode": "chose",
+                            "label": "Yes"
+                        },
+                        "valueRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted value"
+                        },
+                        "dateTimeRenderOption": {
+                            "mode": "chose",
+                            "label": "Formatted string"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google"
+                            },
+                            "label": "My Google connection (anushikacse@gmail.com)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "from",
+                        "type": "select",
+                        "label": "Search Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "drive",
+                                "share"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "valueRenderOption",
+                        "type": "select",
+                        "label": "Value render option",
+                        "validate": {
+                            "enum": [
+                                "FORMATTED_VALUE",
+                                "UNFORMATTED_VALUE",
+                                "FORMULA"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "dateTimeRenderOption",
+                        "type": "select",
+                        "label": "Date and time render option",
+                        "validate": {
+                            "enum": [
+                                "SERIAL_NUMBER",
+                                "FORMATTED_STRING"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "limit",
+                        "type": "uinteger",
+                        "label": "Limit"
+                    },
+                    {
+                        "name": "spreadsheetId",
+                        "type": "text",
+                        "label": "Spreadsheet ID",
+                        "required": true
+                    },
+                    {
+                        "name": "sheetId",
+                        "type": "select",
+                        "label": "Sheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "includesHeaders",
+                        "type": "select",
+                        "label": "Table contains headers",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                true,
+                                false
+                            ]
+                        }
+                    },
+                    {
+                        "name": "tableFirstRow",
+                        "type": "select",
+                        "label": "Column range",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "A1:Z1",
+                                "A1:BZ1",
+                                "A1:CZ1",
+                                "A1:DZ1",
+                                "A1:MZ1",
+                                "A1:ZZ1",
+                                "A1:AZZ1",
+                                "A1:BZZ1",
+                                "A1:CZZ1",
+                                "A1:DZZ1",
+                                "A1:MZZ1",
+                                "A1:ZZZ1"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "filter",
+                        "type": "filter",
+                        "label": "Filter",
+                        "options": "rpc://google-sheets/2/rpcGetFilterKeys?includesHeaders=true"
+                    },
+                    {
+                        "name": "orderBy",
+                        "type": "select",
+                        "label": "Order by"
+                    },
+                    {
+                        "name": "sortOrder",
+                        "type": "select",
+                        "label": "Sort order",
+                        "validate": {
+                            "enum": [
+                                "asc",
+                                "desc"
+                            ]
+                        }
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "__ROW_NUMBER__",
+                        "type": "number",
+                        "label": "Row number"
+                    },
+                    {
+                        "name": "__SPREADSHEET_ID__",
+                        "type": "text",
+                        "label": "Spreadsheet ID"
+                    },
+                    {
+                        "name": "__SHEET__",
+                        "type": "text",
+                        "label": "Sheet"
+                    },
+                    {
+                        "name": "0",
+                        "type": "text",
+                        "label": "Account ID (A)"
+                    },
+                    {
+                        "name": "1",
+                        "type": "text",
+                        "label": "Company (B)"
+                    },
+                    {
+                        "name": "2",
+                        "type": "text",
+                        "label": "Status (C)"
+                    },
+                    {
+                        "name": "3",
+                        "type": "text",
+                        "label": "Version (D)"
+                    },
+                    {
+                        "name": "4",
+                        "type": "text",
+                        "label": "(E)"
+                    },
+                    {
+                        "name": "5",
+                        "type": "text",
+                        "label": "(F)"
+                    },
+                    {
+                        "name": "6",
+                        "type": "text",
+                        "label": "(G)"
+                    },
+                    {
+                        "name": "7",
+                        "type": "text",
+                        "label": "(H)"
+                    },
+                    {
+                        "name": "8",
+                        "type": "text",
+                        "label": "(I)"
+                    },
+                    {
+                        "name": "9",
+                        "type": "text",
+                        "label": "(J)"
+                    },
+                    {
+                        "name": "10",
+                        "type": "text",
+                        "label": "(K)"
+                    },
+                    {
+                        "name": "11",
+                        "type": "text",
+                        "label": "(L)"
+                    },
+                    {
+                        "name": "12",
+                        "type": "text",
+                        "label": "(M)"
+                    },
+                    {
+                        "name": "13",
+                        "type": "text",
+                        "label": "(N)"
+                    },
+                    {
+                        "name": "14",
+                        "type": "text",
+                        "label": "(O)"
+                    },
+                    {
+                        "name": "15",
+                        "type": "text",
+                        "label": "(P)"
+                    },
+                    {
+                        "name": "16",
+                        "type": "text",
+                        "label": "(Q)"
+                    },
+                    {
+                        "name": "17",
+                        "type": "text",
+                        "label": "(R)"
+                    },
+                    {
+                        "name": "18",
+                        "type": "text",
+                        "label": "(S)"
+                    },
+                    {
+                        "name": "19",
+                        "type": "text",
+                        "label": "(T)"
+                    },
+                    {
+                        "name": "20",
+                        "type": "text",
+                        "label": "(U)"
+                    },
+                    {
+                        "name": "21",
+                        "type": "text",
+                        "label": "(V)"
+                    },
+                    {
+                        "name": "22",
+                        "type": "text",
+                        "label": "(W)"
+                    },
+                    {
+                        "name": "23",
+                        "type": "text",
+                        "label": "(X)"
+                    },
+                    {
+                        "name": "24",
+                        "type": "text",
+                        "label": "(Y)"
+                    },
+                    {
+                        "name": "25",
+                        "type": "text",
+                        "label": "(Z)"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 5,
+            "module": "dropbox:getFile",
+            "version": 5,
+            "parameters": {
+                "__IMTCONN__": 7683385
+            },
+            "mapper": {
+                "path": "/clara_assignment/outputs/accounts/ACC_001/v1/account_memo.json",
+                "select": "file"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 300,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "path": {
+                            "mode": "chose"
+                        },
+                        "select": {
+                            "label": "Select a file"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "dropbox"
+                            },
+                            "label": "My Dropbox connection (anushikacse@gmail.com)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:dropbox",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "select",
+                        "type": "select",
+                        "label": "Way of selecting files",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "map",
+                                "file"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "path",
+                        "type": "file",
+                        "label": "File",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 6,
+            "module": "dropbox:getFile",
+            "version": 5,
+            "parameters": {
+                "__IMTCONN__": 7683385
+            },
+            "mapper": {
+                "path": "/clara_assignment/inputs_onboarding/chattrial.txt",
+                "select": "file"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 600,
+                    "y": 0
+                },
+                "restore": {
+                    "expect": {
+                        "path": {
+                            "mode": "chose"
+                        },
+                        "select": {
+                            "label": "Select a file"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "dropbox"
+                            },
+                            "label": "My Dropbox connection (anushikacse@gmail.com)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:dropbox",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "select",
+                        "type": "select",
+                        "label": "Way of selecting files",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "map",
+                                "file"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "path",
+                        "type": "file",
+                        "label": "File",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 2,
+            "module": "http:MakeRequest",
+            "version": 4,
+            "parameters": {
+                "tlsType": "",
+                "proxyKeychain": "",
+                "authenticationType": "noAuth"
+            },
+            "mapper": {
+                "url": "https://api.groq.com/openai/v1/chat/completions",
+                "method": "post",
+                "headers": [
+                    {
+                        "name": "Authorization",
+                        "value": "Bearer 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"
+                    },
+                    {
+                        "name": "Content-Type",
+                        "value": "application/json"
+                    }
+                ],
+                "contentType": "json",
+                "inputMethod": "dataStructure",
+                "shareCookies": false,
+                "parseResponse": true,
+                "allowRedirects": true,
+                "stopOnHttpError": true,
+                "bodyDataStructure": 296507,
+                "dataStructureBodyContent": {
+                    "model": "llama-3.1-8b-instant",
+                    "messages": [
+                        {
+                            "role": "system",
+                            "content": "You are a version control engineer. Update the V1 JSON with new facts from the Onboarding Transcript. Output a V2 JSON including v2_account_memo, v2_agent_spec, and changelog_md. Output ONLY raw JSON."
+                        },
+                        {
+                            "role": "user",
+                            "content": "V1 Data: {{5.data}} New Onboarding Transcript: {{6.data}}"
+                        }
+                    ],
+                    "response_format": {
+                        "type": "json_object"
+                    }
+                },
+                "requestCompressedContent": true
+            },
+            "metadata": {
+                "designer": {
+                    "x": 890,
+                    "y": -2
+                },
+                "restore": {
+                    "expect": {
+                        "method": {
+                            "mode": "chose",
+                            "label": "POST"
+                        },
+                        "headers": {
+                            "mode": "chose",
+                            "items": [
+                                null,
+                                null
+                            ]
+                        },
+                        "contentType": {
+                            "label": "application/jsonEnter data in the JSON format, as a string or using a data structure."
+                        },
+                        "inputMethod": {
+                            "label": "Data structureDefine the JSON body with a data structure to map or enter values for each key. JSON reserved characters are escaped automatically."
+                        },
+                        "shareCookies": {
+                            "mode": "chose"
+                        },
+                        "parseResponse": {
+                            "mode": "chose"
+                        },
+                        "allowRedirects": {
+                            "mode": "chose"
+                        },
+                        "paginationType": {
+                            "label": "Empty"
+                        },
+                        "queryParameters": {
+                            "mode": "chose"
+                        },
+                        "stopOnHttpError": {
+                            "mode": "chose"
+                        },
+                        "bodyDataStructure": {
+                            "label": "Groq Update Request"
+                        },
+                        "dataStructureBodyContent": {
+                            "nested": {
+                                "messages": {
+                                    "mode": "chose",
+                                    "items": [
+                                        null,
+                                        null
+                                    ]
+                                }
+                            }
+                        },
+                        "requestCompressedContent": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "tlsType": {
+                            "label": "Empty"
+                        },
+                        "proxyKeychain": {
+                            "label": "Choose a key"
+                        },
+                        "authenticationType": {
+                            "label": "No authenticationUse when no credentials are required for the request."
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "authenticationType",
+                        "type": "select",
+                        "label": "Authentication type",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "noAuth",
+                                "apiKey",
+                                "basicAuth",
+                                "oAuth"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "tlsType",
+                        "type": "select",
+                        "label": "Transport layer security (TLS)",
+                        "validate": {
+                            "enum": [
+                                "mTls",
+                                "tls"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "proxyKeychain",
+                        "type": "keychain:proxy",
+                        "label": "Proxy"
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "url",
+                        "type": "url",
+                        "label": "URL",
+                        "required": true
+                    },
+                    {
+                        "name": "method",
+                        "type": "select",
+                        "label": "Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "get",
+                                "head",
+                                "post",
+                                "put",
+                                "patch",
+                                "delete",
+                                "options"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "headers",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "name",
+                                    "type": "text",
+                                    "label": "Name",
+                                    "required": true,
+                                    "validate": {
+                                        "pattern": "^[-!#$%&'*+.^_`|~0-9A-Za-z]+$"
+                                    }
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "Value"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Header"
+                        },
+                        "type": "array",
+                        "label": "Headers"
+                    },
+                    {
+                        "name": "queryParameters",
+                        "spec": {
+                            "name": "value",
+                            "spec": [
+                                {
+                                    "name": "name",
+                                    "type": "text",
+                                    "label": "Name",
+                                    "required": true
+                                },
+                                {
+                                    "name": "value",
+                                    "type": "text",
+                                    "label": "Value"
+                                }
+                            ],
+                            "type": "collection",
+                            "label": "Parameter"
+                        },
+                        "type": "array",
+                        "label": "Query parameters"
+                    },
+                    {
+                        "name": "contentType",
+                        "type": "select",
+                        "label": "Body content type",
+                        "validate": {
+                            "enum": [
+                                "json",
+                                "multipart",
+                                "urlEncoded",
+                                "custom"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "parseResponse",
+                        "type": "boolean",
+                        "label": "Parse response",
+                        "required": true
+                    },
+                    {
+                        "name": "stopOnHttpError",
+                        "type": "boolean",
+                        "label": "Return error if HTTP request fails",
+                        "required": true
+                    },
+                    {
+                        "name": "timeout",
+                        "type": "uinteger",
+                        "label": "Timeout",
+                        "validate": {
+                            "max": 300,
+                            "min": 1
+                        }
+                    },
+                    {
+                        "name": "allowRedirects",
+                        "type": "boolean",
+                        "label": "Allow redirects",
+                        "required": true
+                    },
+                    {
+                        "name": "shareCookies",
+                        "type": "boolean",
+                        "label": "Share cookies with other HTTP modules",
+                        "required": true
+                    },
+                    {
+                        "name": "requestCompressedContent",
+                        "type": "boolean",
+                        "label": "Request compressed content",
+                        "required": true
+                    },
+                    {
+                        "name": "inputMethod",
+                        "type": "select",
+                        "label": "Body input method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "dataStructure",
+                                "jsonString"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "bodyDataStructure",
+                        "type": "udt",
+                        "label": "Body structure",
+                        "required": true
+                    },
+                    {
+                        "name": "dataStructureBodyContent",
+                        "spec": [
+                            {
+                                "name": "model",
+                                "type": "text",
+                                "label": "Model",
+                                "required": true
+                            },
+                            {
+                                "name": "messages",
+                                "spec": {
+                                    "name": "value",
+                                    "spec": [
+                                        {
+                                            "name": "role",
+                                            "type": "text",
+                                            "label": null,
+                                            "required": true
+                                        },
+                                        {
+                                            "name": "content",
+                                            "type": "text",
+                                            "label": null,
+                                            "required": true
+                                        }
+                                    ],
+                                    "type": "collection"
+                                },
+                                "type": "array",
+                                "label": "Messages"
+                            },
+                            {
+                                "name": "response_format",
+                                "spec": [
+                                    {
+                                        "name": "type",
+                                        "type": "text",
+                                        "label": "Type",
+                                        "required": true
+                                    }
+                                ],
+                                "type": "collection",
+                                "label": "Response format"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Body content"
+                    },
+                    {
+                        "name": "paginationType",
+                        "type": "select",
+                        "label": "Pagination type",
+                        "validate": {
+                            "enum": [
+                                "offsetBased",
+                                "pageBased",
+                                "urlBased",
+                                "tokenBased"
+                            ]
+                        }
+                    }
+                ],
+                "interface": [
+                    {
+                        "name": "data",
+                        "type": "any",
+                        "label": "Data"
+                    },
+                    {
+                        "name": "statusCode",
+                        "type": "number",
+                        "label": "Status Code"
+                    },
+                    {
+                        "name": "headers",
+                        "spec": [
+                            {
+                                "name": "content-length",
+                                "type": "text",
+                                "label": "Content-Length"
+                            },
+                            {
+                                "name": "content-encoding",
+                                "type": "text",
+                                "label": "Content-Encoding"
+                            },
+                            {
+                                "name": "content-type",
+                                "type": "text",
+                                "label": "Content-Type"
+                            },
+                            {
+                                "name": "server",
+                                "type": "text",
+                                "label": "Server"
+                            },
+                            {
+                                "name": "cache-control",
+                                "type": "text",
+                                "label": "Cache-Control"
+                            },
+                            {
+                                "name": "set-cookie",
+                                "spec": {
+                                    "type": "text"
+                                },
+                                "type": "array",
+                                "label": "Set-Cookie"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Headers"
+                    }
+                ]
+            }
+        },
+        {
+            "id": 7,
+            "module": "json:ParseJSON",
+            "version": 1,
+            "parameters": {
+                "type": ""
+            },
+            "mapper": {
+                "json": "{{2.data.choices[].message.content}}"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1190,
+                    "y": -2
+                },
+                "restore": {
+                    "parameters": {
+                        "type": {
+                            "label": "Choose a data structure"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "type",
+                        "type": "udt",
+                        "label": "Data structure"
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "json",
+                        "type": "text",
+                        "label": "JSON string",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 3,
+            "module": "dropbox:uploadLargeFile",
+            "version": 5,
+            "parameters": {
+                "__IMTCONN__": 7683385
+            },
+            "mapper": {
+                "data": "{{toString(7.v2_account_memo)}}",
+                "path": "/clara_assignment/outputs/accounts/ACC_001/v2",
+                "filename": "account_memo.json",
+                "overwrite": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1491,
+                    "y": -9
+                },
+                "restore": {
+                    "expect": {
+                        "path": {
+                            "mode": "chose"
+                        },
+                        "overwrite": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "dropbox"
+                            },
+                            "label": "My Dropbox connection (anushikacse@gmail.com)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:dropbox",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "path",
+                        "type": "folder",
+                        "label": "Folder",
+                        "required": true
+                    },
+                    {
+                        "name": "filename",
+                        "type": "filename",
+                        "label": "File Name",
+                        "required": true
+                    },
+                    {
+                        "name": "data",
+                        "type": "buffer",
+                        "label": "Data",
+                        "required": true
+                    },
+                    {
+                        "name": "overwrite",
+                        "type": "boolean",
+                        "label": "Overwrite an existing file",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 11,
+            "module": "dropbox:uploadLargeFile",
+            "version": 5,
+            "parameters": {
+                "__IMTCONN__": 7683385
+            },
+            "mapper": {
+                "data": "{{toString(7.v2_agent_spec)}}",
+                "path": "/clara_assignment/outputs/accounts/ACC_001/v2",
+                "filename": "agent_spec.json",
+                "overwrite": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 1791,
+                    "y": -9
+                },
+                "restore": {
+                    "expect": {
+                        "path": {
+                            "mode": "chose"
+                        },
+                        "overwrite": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "dropbox"
+                            },
+                            "label": "My Dropbox connection (anushikacse@gmail.com)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:dropbox",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "path",
+                        "type": "folder",
+                        "label": "Folder",
+                        "required": true
+                    },
+                    {
+                        "name": "filename",
+                        "type": "filename",
+                        "label": "File Name",
+                        "required": true
+                    },
+                    {
+                        "name": "data",
+                        "type": "buffer",
+                        "label": "Data",
+                        "required": true
+                    },
+                    {
+                        "name": "overwrite",
+                        "type": "boolean",
+                        "label": "Overwrite an existing file",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 12,
+            "module": "dropbox:uploadLargeFile",
+            "version": 5,
+            "parameters": {
+                "__IMTCONN__": 7683385
+            },
+            "mapper": {
+                "data": "{{7.changelog_md}}",
+                "path": "/clara_assignment/outputs/accounts/ACC_001",
+                "filename": "changes.json",
+                "overwrite": false
+            },
+            "metadata": {
+                "designer": {
+                    "x": 2091,
+                    "y": -9
+                },
+                "restore": {
+                    "expect": {
+                        "path": {
+                            "mode": "chose"
+                        },
+                        "overwrite": {
+                            "mode": "chose"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "dropbox"
+                            },
+                            "label": "My Dropbox connection (anushikacse@gmail.com)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:dropbox",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "path",
+                        "type": "folder",
+                        "label": "Folder",
+                        "required": true
+                    },
+                    {
+                        "name": "filename",
+                        "type": "filename",
+                        "label": "File Name",
+                        "required": true
+                    },
+                    {
+                        "name": "data",
+                        "type": "buffer",
+                        "label": "Data",
+                        "required": true
+                    },
+                    {
+                        "name": "overwrite",
+                        "type": "boolean",
+                        "label": "Overwrite an existing file",
+                        "required": true
+                    }
+                ]
+            }
+        },
+        {
+            "id": 13,
+            "module": "google-sheets:updateRow",
+            "version": 2,
+            "parameters": {
+                "__IMTCONN__": 7686077
+            },
+            "mapper": {
+                "mode": "map",
+                "values": {
+                    "0": "{{1.`0`}}",
+                    "1": "{{1.`1`}}",
+                    "2": "Finalized",
+                    "3": "v2"
+                },
+                "sheetId": "Sheet1",
+                "rowNumber": "{{1.`__ROW_NUMBER__`}}",
+                "spreadsheetId": "1GeHbpjSQzz9HTWh6iiiSwxP4Qr4fhocVNA7diRlBhbI",
+                "tableFirstRow": "A1:Z1",
+                "valueInputOption": "USER_ENTERED"
+            },
+            "metadata": {
+                "designer": {
+                    "x": 2391,
+                    "y": -9
+                },
+                "restore": {
+                    "expect": {
+                        "mode": {
+                            "label": "Enter manually"
+                        },
+                        "tableFirstRow": {
+                            "label": "A-Z",
+                            "nested": [
+                                {
+                                    "name": "values",
+                                    "spec": [
+                                        {
+                                            "name": "0",
+                                            "type": "text",
+                                            "label": "A"
+                                        },
+                                        {
+                                            "name": "1",
+                                            "type": "text",
+                                            "label": "B"
+                                        },
+                                        {
+                                            "name": "2",
+                                            "type": "text",
+                                            "label": "C"
+                                        },
+                                        {
+                                            "name": "3",
+                                            "type": "text",
+                                            "label": "D"
+                                        },
+                                        {
+                                            "name": "4",
+                                            "type": "text",
+                                            "label": "E"
+                                        },
+                                        {
+                                            "name": "5",
+                                            "type": "text",
+                                            "label": "F"
+                                        },
+                                        {
+                                            "name": "6",
+                                            "type": "text",
+                                            "label": "G"
+                                        },
+                                        {
+                                            "name": "7",
+                                            "type": "text",
+                                            "label": "H"
+                                        },
+                                        {
+                                            "name": "8",
+                                            "type": "text",
+                                            "label": "I"
+                                        },
+                                        {
+                                            "name": "9",
+                                            "type": "text",
+                                            "label": "J"
+                                        },
+                                        {
+                                            "name": "10",
+                                            "type": "text",
+                                            "label": "K"
+                                        },
+                                        {
+                                            "name": "11",
+                                            "type": "text",
+                                            "label": "L"
+                                        },
+                                        {
+                                            "name": "12",
+                                            "type": "text",
+                                            "label": "M"
+                                        },
+                                        {
+                                            "name": "13",
+                                            "type": "text",
+                                            "label": "N"
+                                        },
+                                        {
+                                            "name": "14",
+                                            "type": "text",
+                                            "label": "O"
+                                        },
+                                        {
+                                            "name": "15",
+                                            "type": "text",
+                                            "label": "P"
+                                        },
+                                        {
+                                            "name": "16",
+                                            "type": "text",
+                                            "label": "Q"
+                                        },
+                                        {
+                                            "name": "17",
+                                            "type": "text",
+                                            "label": "R"
+                                        },
+                                        {
+                                            "name": "18",
+                                            "type": "text",
+                                            "label": "S"
+                                        },
+                                        {
+                                            "name": "19",
+                                            "type": "text",
+                                            "label": "T"
+                                        },
+                                        {
+                                            "name": "20",
+                                            "type": "text",
+                                            "label": "U"
+                                        },
+                                        {
+                                            "name": "21",
+                                            "type": "text",
+                                            "label": "V"
+                                        },
+                                        {
+                                            "name": "22",
+                                            "type": "text",
+                                            "label": "W"
+                                        },
+                                        {
+                                            "name": "23",
+                                            "type": "text",
+                                            "label": "X"
+                                        },
+                                        {
+                                            "name": "24",
+                                            "type": "text",
+                                            "label": "Y"
+                                        },
+                                        {
+                                            "name": "25",
+                                            "type": "text",
+                                            "label": "Z"
+                                        }
+                                    ],
+                                    "type": "collection",
+                                    "label": "Values in columns"
+                                }
+                            ]
+                        },
+                        "valueInputOption": {
+                            "mode": "chose",
+                            "label": "User entered"
+                        }
+                    },
+                    "parameters": {
+                        "__IMTCONN__": {
+                            "data": {
+                                "scoped": "true",
+                                "connection": "google"
+                            },
+                            "label": "My Google connection (anushikacse@gmail.com)"
+                        }
+                    }
+                },
+                "parameters": [
+                    {
+                        "name": "__IMTCONN__",
+                        "type": "account:google",
+                        "label": "Connection",
+                        "required": true
+                    }
+                ],
+                "expect": [
+                    {
+                        "name": "mode",
+                        "type": "select",
+                        "label": "Search Method",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "select",
+                                "fromAll",
+                                "map"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "valueInputOption",
+                        "type": "select",
+                        "label": "Value input option",
+                        "validate": {
+                            "enum": [
+                                "USER_ENTERED",
+                                "RAW"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "spreadsheetId",
+                        "type": "text",
+                        "label": "Spreadsheet ID",
+                        "required": true
+                    },
+                    {
+                        "name": "sheetId",
+                        "type": "text",
+                        "label": "Sheet Name",
+                        "required": true
+                    },
+                    {
+                        "name": "rowNumber",
+                        "type": "uinteger",
+                        "label": "Row number",
+                        "required": true
+                    },
+                    {
+                        "name": "tableFirstRow",
+                        "type": "select",
+                        "label": "Column range",
+                        "required": true,
+                        "validate": {
+                            "enum": [
+                                "A1:Z1",
+                                "A1:BZ1",
+                                "A1:CZ1",
+                                "A1:DZ1",
+                                "A1:MZ1",
+                                "A1:ZZ1"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "values",
+                        "spec": [
+                            {
+                                "name": "0",
+                                "type": "text",
+                                "label": "A"
+                            },
+                            {
+                                "name": "1",
+                                "type": "text",
+                                "label": "B"
+                            },
+                            {
+                                "name": "2",
+                                "type": "text",
+                                "label": "C"
+                            },
+                            {
+                                "name": "3",
+                                "type": "text",
+                                "label": "D"
+                            },
+                            {
+                                "name": "4",
+                                "type": "text",
+                                "label": "E"
+                            },
+                            {
+                                "name": "5",
+                                "type": "text",
+                                "label": "F"
+                            },
+                            {
+                                "name": "6",
+                                "type": "text",
+                                "label": "G"
+                            },
+                            {
+                                "name": "7",
+                                "type": "text",
+                                "label": "H"
+                            },
+                            {
+                                "name": "8",
+                                "type": "text",
+                                "label": "I"
+                            },
+                            {
+                                "name": "9",
+                                "type": "text",
+                                "label": "J"
+                            },
+                            {
+                                "name": "10",
+                                "type": "text",
+                                "label": "K"
+                            },
+                            {
+                                "name": "11",
+                                "type": "text",
+                                "label": "L"
+                            },
+                            {
+                                "name": "12",
+                                "type": "text",
+                                "label": "M"
+                            },
+                            {
+                                "name": "13",
+                                "type": "text",
+                                "label": "N"
+                            },
+                            {
+                                "name": "14",
+                                "type": "text",
+                                "label": "O"
+                            },
+                            {
+                                "name": "15",
+                                "type": "text",
+                                "label": "P"
+                            },
+                            {
+                                "name": "16",
+                                "type": "text",
+                                "label": "Q"
+                            },
+                            {
+                                "name": "17",
+                                "type": "text",
+                                "label": "R"
+                            },
+                            {
+                                "name": "18",
+                                "type": "text",
+                                "label": "S"
+                            },
+                            {
+                                "name": "19",
+                                "type": "text",
+                                "label": "T"
+                            },
+                            {
+                                "name": "20",
+                                "type": "text",
+                                "label": "U"
+                            },
+                            {
+                                "name": "21",
+                                "type": "text",
+                                "label": "V"
+                            },
+                            {
+                                "name": "22",
+                                "type": "text",
+                                "label": "W"
+                            },
+                            {
+                                "name": "23",
+                                "type": "text",
+                                "label": "X"
+                            },
+                            {
+                                "name": "24",
+                                "type": "text",
+                                "label": "Y"
+                            },
+                            {
+                                "name": "25",
+                                "type": "text",
+                                "label": "Z"
+                            }
+                        ],
+                        "type": "collection",
+                        "label": "Values in columns"
+                    }
+                ]
+            }
+        }
+    ],
+    "metadata": {
+        "instant": false,
+        "version": 1,
+        "scenario": {
+            "roundtrips": 1,
+            "maxErrors": 3,
+            "autoCommit": true,
+            "autoCommitTriggerLast": true,
+            "sequential": false,
+            "slots": null,
+            "confidential": false,
+            "dataloss": false,
+            "dlq": false,
+            "freshVariables": false
+        },
+        "designer": {
+            "orphans": []
+        },
+        "zone": "us2.make.com",
+        "notes": []
+    }
+}
